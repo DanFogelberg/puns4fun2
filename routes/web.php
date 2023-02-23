@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\showPunsController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\addPunController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +15,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', showPunsController::class);
+
+
+
+Route::get('/addPun', addPunController::class);
+Route::post('/addPun', addPunController::class);
