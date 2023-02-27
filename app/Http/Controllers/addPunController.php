@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Pun;
 
 class addPunController extends Controller
 {
@@ -11,8 +12,14 @@ class addPunController extends Controller
      */
     public function __invoke(Request $request)
     {
-        if (isset($_POST['newPun']));
+        $pun = $request->only(['pun', 'author']);
+        if (isset($pun['pun']) && isset($pun['author'])) {
 
-        return view('addPun');
+            Pun::create($pun);
+        }
+
+        //if (isset($_POST['newPun']));
+
+        return view('addPun', ['pun' => $pun]);
     }
 }
