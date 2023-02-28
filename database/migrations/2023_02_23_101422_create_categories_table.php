@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use App\Models\Category;
 
 return new class extends Migration
 {
@@ -16,6 +17,11 @@ return new class extends Migration
             $table->string('category');
             $table->timestamps();
         });
+
+        App\Models\Category::create(['category' => 'cat']);
+        App\Models\Category::create(['category' => 'celebrities']);
+        App\Models\Category::create(['category' => 'countries']);
+        App\Models\Category::create(['category' => 'baking']);
     }
 
     /**

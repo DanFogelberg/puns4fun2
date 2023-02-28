@@ -3,6 +3,13 @@
 
     <input type="text" name="author" placeholder="author"><br>
 
+
+    @foreach($categories as $category)
+    <input type="checkbox" name=>
+    <label for="cat"> Cat</label><br>
+
+    @endforeach
+
     <input type="checkbox" name="cat">
     <label for="cat"> Cat</label><br>
     <input type="checkbox" name="celebrities">
