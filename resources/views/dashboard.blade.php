@@ -1,4 +1,4 @@
-<form action="/addPun" method="POST">
+<form action="/" method="POST">
     <input type="text" name="pun" placeholder="pun">
 
     <input type="text" name="author" placeholder="author"><br>
@@ -24,4 +24,14 @@
 echo "<br>";
 var_dump($pun);
 echo "<br>";
+?>
+
+
+<?php
+
+
+foreach ($puns as $pun) {
+    echo "<br>", $pun->pun, "- ", $pun->author;
+}
+
 ?>

@@ -3,6 +3,7 @@
 use App\Http\Controllers\showPunsController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\addPunController;
+use App\Http\Controllers\dashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,9 +16,7 @@ use App\Http\Controllers\addPunController;
 |
 */
 
-Route::get('/', showPunsController::class);
 
+Route::get('/', dashboardController::class);
 
-
-Route::get('/addPun', addPunController::class);
-Route::post('/addPun', addPunController::class);
+Route::post('/', dashboardController::class);
