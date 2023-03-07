@@ -1,9 +1,12 @@
 <?php
 
-use App\Http\Controllers\showPunsController;
+
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\addPunController;
 use App\Http\Controllers\dashboardController;
+use App\Http\Controllers\adminController;
+use App\Http\Controllers\adminLoginFormController;
+use App\Http\Controllers\adminLoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,3 +23,9 @@ use App\Http\Controllers\dashboardController;
 Route::get('/', dashboardController::class);
 
 Route::post('/addPun', addPunController::class);
+
+Route::get('/admin', adminController::class);
+Route::post('/admin', adminController::class);
+
+Route::get('/adminLogin', adminLoginFormController::class);
+Route::post('/adminLogin', adminLoginController::class);
