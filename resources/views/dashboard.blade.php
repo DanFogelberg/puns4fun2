@@ -1,9 +1,18 @@
-<form action="/" method="POST">
+<?php
+echo "<br>";
+echo "<pre>";
+var_dump($punsCategories);
+//var_dump($categories);
+//var_dump($categoriesArray);
+
+?>
+
+<form action="/addPun" method="POST">
     <input type="text" name="pun" placeholder="pun">
 
     <input type="text" name="author" placeholder="author"><br>
 
-
+    @include('errors')
     @foreach($categories as $category)
 
     <input type="checkbox" name="<?= $category->category ?>">
@@ -19,13 +28,6 @@
     <button>submit</button>
     @csrf
 </form>
-
-<?php
-echo "<br>";
-var_dump($pun);
-echo "<br>";
-?>
-
 
 <?php
 

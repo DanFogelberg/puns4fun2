@@ -19,4 +19,4 @@ use App\Http\Controllers\dashboardController;
 
 Route::get('/', dashboardController::class);
 
-Route::post('/', dashboardController::class);
+Route::post('/addPun', addPunController::class);
