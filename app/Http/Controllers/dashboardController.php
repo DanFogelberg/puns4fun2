@@ -16,9 +16,6 @@ class dashboardController extends Controller
 
 
         $puns = DB::table('puns')->get();
-
-        $categoriesPuns = DB::table('categories_puns')->get();
-
         $categories = DB::table('categories')->get();
 
 
