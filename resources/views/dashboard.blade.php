@@ -1,3 +1,9 @@
+<!-- <img src="img/example.com.png" alt="dog"> -->
+
+<h1>PUN 4 FUN</h1>
+<link href="css/main.css" rel="stylesheet">
+<link href="css/fonts.css" rel="stylesheet">
+
 <form action="/addPun" method="POST">
     <input type="text" name="pun" placeholder="pun">
 
