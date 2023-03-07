@@ -36,7 +36,7 @@ foreach ($punsCategories as $pun) {
         $punId = $pun->id;
         echo "<br>", $pun->pun, "- ", $pun->author;
     }
-    echo $categories->where('id', $pun->category_ID)->first()->category;
+   if(isset($pun->category_ID)) echo " " . $categories->where('id', $pun->category_ID)->first()->category;
 
 }
 
