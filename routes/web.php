@@ -7,6 +7,7 @@ use App\Http\Controllers\dashboardController;
 use App\Http\Controllers\adminController;
 use App\Http\Controllers\adminLoginFormController;
 use App\Http\Controllers\adminLoginController;
+use App\Http\Controllers\logoutController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,8 +25,11 @@ Route::get('/', dashboardController::class);
 
 Route::post('/addPun', addPunController::class);
 
-Route::get('/admin', adminController::class);
-Route::post('/admin', adminController::class);
+Route::get('/admin', adminController::class)->middleware('auth');
+Route::post('/admin', adminController::class)->middleware('auth');
 
-Route::get('/adminLogin', adminLoginFormController::class);
+Route::get('/adminLogin', adminLoginFormController::class)->name('login')->middleware('guest');
+
 Route::post('/adminLogin', adminLoginController::class);
+
+Route::post('/logout', logoutController::class);

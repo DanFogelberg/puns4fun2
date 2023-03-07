@@ -6,7 +6,8 @@
 
 <form action="/addPun" method="POST">
 
-    <input type="text" name="pun" placeholder="pun">
+    <textarea name="pun" placeholder="pun">
+    </textarea>
 
     <input type="text" name="author" placeholder="author"><br>
 
@@ -31,13 +32,11 @@
 
 $punId = 0;
 foreach ($punsCategories as $pun) {
-    if($punId != $pun->id)
-    {
+    if ($punId != $pun->id) {
         $punId = $pun->id;
         echo "<br>", $pun->pun, "- ", $pun->author;
     }
-   if(isset($pun->category_ID)) echo " " . $categories->where('id', $pun->category_ID)->first()->category;
-
+    if (isset($pun->category_ID)) echo " " . $categories->where('id', $pun->category_ID)->first()->category;
 }
 
 ?>
