@@ -16,12 +16,7 @@ class dashboardController extends Controller
 
 
         $puns = DB::table('puns')->get();
-
-        $categoriesPuns = DB::table('categories_puns')->get();
-
         $categories = DB::table('categories')->get();
-
-        $categoriesArray = json_decode(json_encode($categories), true);
 
 
 
@@ -30,6 +25,6 @@ class dashboardController extends Controller
             ->select('puns.*', 'categories_puns.category_ID')
             ->get();
 
-        return view('dashboard', ['puns' => $puns, 'categories' => $categories, 'punsCategories' => $punsCategories, 'categoriesArray' => $categoriesArray]);
+        return view('dashboard', ['puns' => $puns, 'categories' => $categories, 'punsCategories' => $punsCategories]);
     }
 }

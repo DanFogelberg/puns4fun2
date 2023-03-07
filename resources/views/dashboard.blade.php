@@ -5,6 +5,7 @@
 <link href="css/fonts.css" rel="stylesheet">
 
 <form action="/addPun" method="POST">
+
     <input type="text" name="pun" placeholder="pun">
 
     <input type="text" name="author" placeholder="author"><br>
@@ -28,9 +29,15 @@
 
 <?php
 
+$punId = 0;
+foreach ($punsCategories as $pun) {
+    if($punId != $pun->id)
+    {
+        $punId = $pun->id;
+        echo "<br>", $pun->pun, "- ", $pun->author;
+    }
+    echo $categories->where('id', $pun->category_ID)->first()->category;
 
-foreach ($puns as $pun) {
-    echo "<br>", $pun->pun, "- ", $pun->author;
 }
 
 ?>
