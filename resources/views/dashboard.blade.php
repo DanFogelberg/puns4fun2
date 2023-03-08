@@ -8,6 +8,7 @@
 
     <textarea name="pun" placeholder="pun">
     </textarea>
+    <br>
 
     <input type="text" name="author" placeholder="author"><br>
 
@@ -28,15 +29,20 @@
     @csrf
 </form>
 
-<?php
 
-$punId = 0;
-foreach ($punsCategories as $pun) {
-    if ($punId != $pun->id) {
-        $punId = $pun->id;
-        echo "<br>", $pun->pun, "- ", $pun->author;
-    }
-    if (isset($pun->category_ID)) echo " " . $categories->where('id', $pun->category_ID)->first()->category;
-}
 
-?>
+
+<section>
+    <?php
+    foreach ($puns as $pun) { ?>
+    <div>
+        <?= $pun['pun'], "- ", $pun['author'] ?>
+        @foreach ($pun['categories'] as $categoryId)
+        <?php echo $categories->where('id', $categoryId)->first()->category ?>
+        @endforeach
+
+    </div>
+
+
+    <?php } ?>
+</section>

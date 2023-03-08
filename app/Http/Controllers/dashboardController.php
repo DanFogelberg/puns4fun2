@@ -15,16 +15,27 @@ class dashboardController extends Controller
     {
 
 
-        $puns = DB::table('puns')->get();
         $categories = DB::table('categories')->get();
 
 
 
         $punsCategories = DB::table('puns')
-            ->leftJoin('categories_puns', 'puns.id', '=', 'categories_puns.pun_ID')
+            ->Join('categories_puns', 'puns.id', '=', 'categories_puns.pun_ID')
             ->select('puns.*', 'categories_puns.category_ID')
             ->get();
 
-        return view('dashboard', ['puns' => $puns, 'categories' => $categories, 'punsCategories' => $punsCategories]);
+        $puns = [];
+
+        foreach ($punsCategories as $pun) {
+            if (!array_key_exists($pun->id, $puns)) {
+                $puns[$pun->id] = ['pun' => $pun->pun, 'author' => $pun->author, 'categories' => []];
+            }
+            if (isset($pun->category_ID)) {
+                $puns[$pun->id]['categories'][] = $pun->category_ID;
+            }
+        }
+
+
+        return view('dashboard', ['puns' => $puns, 'categories' => $categories]);
     }
 }
