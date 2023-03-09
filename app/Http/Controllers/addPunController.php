@@ -26,6 +26,9 @@ class addPunController extends Controller
         ]);
 
         $pun = $request->only(['pun', 'author', 'cat', 'celebrities', 'countries', 'baking']);
+        if (!(isset($pun['cat']) || isset($pun['celebrities']) || isset($pun['countries']) || isset($pun['baking']))) {
+            return Redirect::to('/')->withErrors("Please choose a category");
+        }
         if (isset($pun['pun']) && isset($pun['author'])) {
             $punId = Pun::create(['pun' => $pun['pun'], 'author' => $pun['author']])->id;
 

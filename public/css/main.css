@@ -3,10 +3,16 @@
 }
 
 body {
-    background-color: yellowgreen;
+    background-color: rgb(201, 157, 157);
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: white;
     margin: 0;
     height: auto;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
 }
 
 h1 {
@@ -19,10 +25,51 @@ section {
     flex-wrap: wrap;
     justify-content: start;
     align-items: center;
+    gap: 2rem;
+    margin: 2rem;
 }
 
-div {
+.card {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
     height: 20rem;
     width: 20rem;
-    background-color: brown;
+    background-color: white;
+    color: black;
+    padding: 2rem;
+    border-radius: 1rem;
+}
+
+.categories {
+    display: flex;
+    justify-content: end;
+    flex-direction: row-reverse;
+    flex-wrap: wrap;
+}
+
+.category {
+    height: auto;
+    width: fit-content;
+    background-color: rgb(61, 64, 221);
+    color: black;
+    margin: 0.2rem;
+    padding: 0.2rem;
+    border-radius: 0.5rem;
+}
+
+.cat {
+    background-color: rgb(61, 165, 221);
+}
+
+.celebrities {
+    background-color: coral;
+}
+
+.countries {
+    background-color: rgb(255, 80, 232);
+}
+
+.baking {
+    background-color: rgb(165, 80, 255);
 }

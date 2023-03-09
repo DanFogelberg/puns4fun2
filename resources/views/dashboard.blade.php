@@ -29,20 +29,37 @@
     @csrf
 </form>
 
+<form action="/" method="get">
+    <button>All</button>
+    @foreach($categories as $category)
 
+    <button value="<?= $category->category ?>" name="category">
+
+        <?= $category->category ?>
+        <br>
+
+    </button>
+
+    @endforeach
+</form>
 
 
 <section>
-    <?php
-    foreach ($puns as $pun) { ?>
-    <div>
-        <?= $pun['pun'], "- ", $pun['author'] ?>
-        @foreach ($pun['categories'] as $categoryId)
-        <?php echo $categories->where('id', $categoryId)->first()->category ?>
-        @endforeach
 
+
+    @foreach ($puns as $pun)
+    <div class="card">
+        <?= $pun->pun, "- ", $pun->author ?>
+
+        <div class="categories">
+            @foreach ($pun->category as $category)
+            <div class="category <?= $category->category ?>">
+                <?= $category->category ?> </div>
+            @endforeach
+
+
+        </div>
     </div>
 
-
-    <?php } ?>
+    @endforeach
 </section>

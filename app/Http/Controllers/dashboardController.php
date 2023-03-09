@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Pun;
+
 
 class dashboardController extends Controller
 {
@@ -13,27 +15,14 @@ class dashboardController extends Controller
      */
     public function __invoke(Request $request)
     {
+        $puns = Pun::all();
+        $categories = Category::all();
 
+        $category = $request->get('category');
 
-        $categories = DB::table('categories')->get();
-
-
-
-        $punsCategories = DB::table('puns')
-            ->Join('categories_puns', 'puns.id', '=', 'categories_puns.pun_ID')
-            ->select('puns.*', 'categories_puns.category_ID')
-            ->get();
-
-        $puns = [];
-
-        foreach ($punsCategories as $pun) {
-            if (!array_key_exists($pun->id, $puns)) {
-                $puns[$pun->id] = ['pun' => $pun->pun, 'author' => $pun->author, 'categories' => []];
-            }
-            if (isset($pun->category_ID)) {
-                $puns[$pun->id]['categories'][] = $pun->category_ID;
-            }
-        }
+        if ($category) {
+            $puns = $categories->where('category', $category)->first()->puns;
+        };
 
 
         return view('dashboard', ['puns' => $puns, 'categories' => $categories]);

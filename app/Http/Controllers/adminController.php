@@ -16,7 +16,7 @@ class adminController extends Controller
 
 
 
-        $deletePuns = $request->All();
+        $deletePuns = $request->all();
 
         foreach ($deletePuns as $id => $pun) {
             if ($pun === 'on') {
