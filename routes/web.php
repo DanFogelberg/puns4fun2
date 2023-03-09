@@ -25,7 +25,7 @@ Route::get('/', dashboardController::class);
 
 Route::post('/addPun', addPunController::class);
 
-Route::get('/admin', adminController::class)->middleware('auth');
+Route::get('/admin', adminController::class)->middleware('auth')->name('admin');
 Route::post('/admin', adminController::class)->middleware('auth');
 
 Route::get('/adminLogin', adminLoginFormController::class)->name('login')->middleware('guest');
