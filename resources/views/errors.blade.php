@@ -1,4 +1,4 @@
-@if ($errors->any())
+@if (isset($errors) && $errors->any())
 <p>
     <u>{{ $errors->first() }}</u>
 </p>

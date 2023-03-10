@@ -1,10 +1,12 @@
 <!-- <img src="img/example.com.png" alt="dog"> -->
 
+
 <h1>PUN 4 FUN</h1>
 <link href="css/main.css" rel="stylesheet">
 <link href="css/fonts.css" rel="stylesheet">
 
-<form action="/addPun" method="POST">
+
+<form action="/addPun" method="post">
 
     <textarea name="pun" placeholder="pun">
     </textarea>
@@ -12,7 +14,7 @@
 
     <input type="text" name="author" placeholder="author"><br>
 
-    @include('errors')
+
     @foreach($categories as $category)
 
     <input type="checkbox" name="<?= $category->category ?>">
@@ -42,7 +44,7 @@
 
     @endforeach
 </form>
-
+@include ('errors')
 
 <section>
 

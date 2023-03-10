@@ -15,6 +15,7 @@ class dashboardController extends Controller
      */
     public function __invoke(Request $request)
     {
+
         $puns = Pun::all();
         $categories = Category::all();
 
