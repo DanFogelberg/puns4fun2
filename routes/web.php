@@ -2,12 +2,12 @@
 
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\addPunController;
-use App\Http\Controllers\dashboardController;
-use App\Http\Controllers\adminController;
-use App\Http\Controllers\adminLoginFormController;
-use App\Http\Controllers\adminLoginController;
-use App\Http\Controllers\logoutController;
+use App\Http\Controllers\AddPunController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AdminLoginFormController;
+use App\Http\Controllers\AdminLoginController;
+use App\Http\Controllers\LogoutController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,15 +21,15 @@ use App\Http\Controllers\logoutController;
 */
 
 
-Route::get('/', dashboardController::class);
+Route::get('/', DashboardController::class);
 
-Route::post('/addPun', addPunController::class);
+Route::post('/addPun', AddPunController::class);
 
-Route::get('/admin', adminController::class)->middleware('auth')->name('admin');
-Route::post('/admin', adminController::class)->middleware('auth');
+Route::get('/admin', AdminController::class)->middleware('auth')->name('admin');
+Route::post('/admin', AdminController::class)->middleware('auth');
 
-Route::get('/adminLogin', adminLoginFormController::class)->name('login')->middleware('guest');
+Route::get('/adminLogin', AdminLoginFormController::class)->name('login')->middleware('guest');
 
-Route::post('/adminLogin', adminLoginController::class);
+Route::post('/adminLogin', AdminLoginController::class);
 
-Route::post('/logout', logoutController::class);
+Route::post('/logout', LogoutController::class);

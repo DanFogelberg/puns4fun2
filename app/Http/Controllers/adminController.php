@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Pun;
 
-class adminController extends Controller
+class AdminController extends Controller
 {
     /**
      * Handle the incoming request.

@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\DB;
 use App\Models\Pun;
 
 
-class dashboardController extends Controller
+class DashboardController extends Controller
 {
     /**
      * Handle the incoming request.

@@ -48,7 +48,7 @@
 
 <section>
 
-
+    <!-- Add pagination  -->
     @foreach ($puns as $pun)
     <div class="card">
         <?= $pun->pun, "- ", $pun->author ?>

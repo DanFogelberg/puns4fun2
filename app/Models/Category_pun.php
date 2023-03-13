@@ -14,8 +14,8 @@ class Category_pun extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'category_ID',
-        'pun_ID'
+        'category_id',
+        'pun_id'
 
     ];
 

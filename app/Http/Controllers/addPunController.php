@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\DB;
 use App\Models\Category_pun;
 
 
-class addPunController extends Controller
+class AddPunController extends Controller
 {
     /**
      * Handle the incoming request.
@@ -39,7 +39,7 @@ class addPunController extends Controller
 
                 if (isset($pun[$categoryName])) {
 
-                    Category_pun::create(['pun_ID' => $punId, 'category_ID' => $category->id]);
+                    Category_pun::create(['pun_id' => $punId, 'category_id' => $category->id]);
                 }
             }
         }
