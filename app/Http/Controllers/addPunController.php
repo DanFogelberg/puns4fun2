@@ -19,14 +19,20 @@ class AddPunController extends Controller
 
         $categories = DB::table('categories')->get();
 
-
         $this->validate($request, [
             'pun' => 'required|string|min:20|max:400',
             'author' => 'required|string|min:1|max:30',
         ]);
 
-        $pun = $request->only(['pun', 'author', 'cat', 'celebrities', 'countries', 'baking']);
-        if (!(isset($pun['cat']) || isset($pun['celebrities']) || isset($pun['countries']) || isset($pun['baking']))) {
+        $punParameters = ['pun', 'author'];
+        foreach ($categories as $category) {
+            $punParameters[] = $category->category;
+        }
+
+        $pun = $request->only($punParameters);
+
+
+        if (count($pun) <= 2) { //If count < 3 there are no categories
             return Redirect::to('/')->withErrors("Please choose a category");
         }
         if (isset($pun['pun']) && isset($pun['author'])) {

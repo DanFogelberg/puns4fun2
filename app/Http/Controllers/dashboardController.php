@@ -19,10 +19,11 @@ class DashboardController extends Controller
         $puns = Pun::all();
         $categories = Category::all();
 
-        $category = $request->get('category');
 
-        if ($category) {
-            $puns = $categories->where('category', $category)->first()->puns;
+        //If viewing category has been selected, only view puns from that category
+        $viewCategory = $request->get('category');
+        if ($viewCategory) {
+            $puns = $categories->where('category', $viewCategory)->first()->puns;
         };
 
 

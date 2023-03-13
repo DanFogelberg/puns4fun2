@@ -19,6 +19,21 @@ h1 {
     font-family: "Montserrat Alternates";
 }
 
+input {
+    margin: 0.5rem;
+}
+
+button {
+    background-color: pink;
+    margin-top: 0.5rem;
+    padding: 0.2rem;
+    border-radius: 0.5rem;
+    width: 5rem;
+    cursor: pointer;
+}
+.submit {
+    background-color: darkseagreen;
+}
 section {
     display: flex;
     flex-direction: row;
@@ -58,7 +73,7 @@ section {
     border-radius: 0.5rem;
 }
 
-.cat {
+.animals {
     background-color: rgb(61, 165, 221);
 }
 
@@ -70,6 +85,10 @@ section {
     background-color: rgb(255, 80, 232);
 }
 
-.baking {
+.snacks {
+    background-color: burlywood;
+}
+
+.bilingual {
     background-color: rgb(165, 80, 255);
 }

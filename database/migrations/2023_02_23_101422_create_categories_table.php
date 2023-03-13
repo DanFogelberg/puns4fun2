@@ -18,10 +18,11 @@ return new class extends Migration
             $table->timestamps();
         });
 
-        App\Models\Category::create(['category' => 'cat']);
+        App\Models\Category::create(['category' => 'animals']);
         App\Models\Category::create(['category' => 'celebrities']);
         App\Models\Category::create(['category' => 'countries']);
-        App\Models\Category::create(['category' => 'baking']);
+        App\Models\Category::create(['category' => 'snacks']);
+        App\Models\Category::create(['category' => 'bilingual']);
     }
 
     /**

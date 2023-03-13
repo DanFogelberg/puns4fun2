@@ -8,8 +8,7 @@
 
 <form action="/addPun" method="post">
 
-    <textarea name="pun" placeholder="pun">
-    </textarea>
+    <textarea name="pun" placeholder="pun"></textarea>
     <br>
 
     <input type="text" name="author" placeholder="author"><br>
@@ -27,7 +26,7 @@
     @endforeach
 
 
-    <button>submit</button>
+    <button class="submit">submit</button>
     @csrf
 </form>
 
@@ -35,7 +34,7 @@
     <button>All</button>
     @foreach($categories as $category)
 
-    <button value="<?= $category->category ?>" name="category">
+    <button value="<?= $category->category ?>" name="category" class="<?= $category->category ?>">
 
         <?= $category->category ?>
         <br>
