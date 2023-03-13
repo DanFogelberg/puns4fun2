@@ -18,7 +18,7 @@ class HTTPTest extends TestCase
     use WithoutMiddleware;
     use RefreshDatabase;
 
-    
+
 
 
     /**
@@ -40,7 +40,7 @@ class HTTPTest extends TestCase
         foreach ($routes as $route) {
             if ($route["method"] === "get") $response = $this->get($route["path"]);
             if ($route["method"] === "post") $response = $this->post($route["path"]);
-            //Should return error message with satusCode rather than failed to assert true == false
+            //Should return error message with statusCode rather than failed to assert true == false
             Assert::assertTrue($response->getStatusCode() === 302 || $response->getStatusCode() === 200);
         }
     }
